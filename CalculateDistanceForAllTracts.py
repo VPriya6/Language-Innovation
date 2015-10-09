@@ -1,0 +1,27 @@
+import pickle;
+import sys;
+import math;
+
+master_tract = pickle.load(open(sys.argv[1], 'rb'));
+tract = pickle.load(open(sys.argv[2], 'rb'));
+
+distance = 0
+numberOfCommonWords = 0
+
+directory = os.listdir(sys.argv[1])
+extension = re.compile('.*out');
+for file in directory:
+	if(extension.match(file)):
+		# print("reading file ......." +file)
+		with open(os.getcwd() + "/" + sys.argv[1] +"/"+file, 'rU') as f:
+
+
+
+for word in tract_1:
+	if word in tract_2:
+		numberOfCommonWords = numberOfCommonWords + 1
+		print(word, tract_1[word], tract_2[word])
+		distance = distance + (tract_1[word]- tract_2[word])**2
+
+print(math.sqrt(distance/numberOfCommonWords))
+# print(tract_1.values()[len(tract_1)-1], tract_2.values()[len(tract_2)-1])
